@@ -31,7 +31,7 @@
 	letter-spacing: 0.06em;
 }
 
-.header_title {
+.header__title {
 	text-shadow: 0px -5px 15px black;
 	margin: 0 auto;
 }
@@ -46,29 +46,30 @@
 }
 
 .language-buttons {
-	width: 100%;
+	width: 50%;
 	text-align: center;
+	display: flex;
+	justify-content: space-evenly;
 }
 
 .lang-btn {
-	height: 20px;
-	width: 35%;
-	background-color: #4C4C4C;
+	height: 25px;
+	width: 49%;
+	background-color: #5B5B5B;
 	border: none;
 	color: #B2B2B2;
 	font-weight: bold;
 	font-family: Arial, Helvetica, sans-serif;
 	text-align: center;
 	font-size: 14px;
-	padding: 0;
 	transition: all 0.2s;
 }
 
 .lang-btn:hover {
 	cursor: pointer;
 	text-shadow: 0px 0px 10px #B2B2B2;
-	width: 40%;
-	border-radius: 50px;
+	width: 70%;
+	background-color: #4C4C4C;
 }
 
 .lang-btn:active {
@@ -101,7 +102,7 @@
 	width: 100%;
 	text-align: center;
 	line-height: 1.2em;
-	margin-top: 5px;
+	margin-top: 10px;
 }
 
 .main {
@@ -144,7 +145,7 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
-	margin: 30px auto;
+	margin: 15px auto;
 	display: flex;
 	justify-content: center;
 	position: relative;
@@ -152,9 +153,9 @@
 
 .keyboard__body {
 	width: 80%;
-	height: 50%;
+	height: 45%;
 	position: absolute;
-	top: calc(15%);
+	top: calc(18%);
 }
 
 .keyboard__row {
@@ -183,7 +184,9 @@
 .keyboard__btn:hover {
 	cursor: pointer;
 	background-color: #4C4C4C;
-	border-radius: 7px;
+	border-radius: 10px;
+	color: black;
+	font-weight: bold;
 }
 
 .keyboard__btn:active {
@@ -194,16 +197,6 @@
 .not-square-btn:active {
 	border-radius: 15px;
 }
-
-.row-1__btn {}
-
-.row-2__btn {}
-
-.row-3__btn {}
-
-.row-4__btn {}
-
-.row-5__btn {}
 
 .space {
 	width: 281px;
