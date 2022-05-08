@@ -1,13 +1,12 @@
-import { en, enShifted, ru, ruShifted } from './symbols.js';
+import { keyId, keyValues } from './symbols.js';
 
-const typeKeyboard = {
-	en,
-	enShifted,
-	ru,
-	ruShifted
+const keyboardOption = {
+	lang: 'en',
+	shift: false,
+	caps: false,
 }
 
-let typeLang = 'en';
+
 
 const body = document.querySelector('body');
 // create wrapper + style
@@ -32,7 +31,7 @@ headerRow.classList.add('container');
 headerRow.classList.add('header__row');
 //create headerTitle
 const headerTitle = document.createElement('h1');
-headerTitle.innerText = 'RSS BatKeyboard';
+headerTitle.innerText = 'RSS Batcomputer';
 headerTitle.classList.add('header__title');
 headerTitle.classList.add('title');
 // contain header
@@ -52,6 +51,9 @@ screenTextarea.setAttribute('name', 'screen');
 screenTextarea.setAttribute('id', 'screen');
 screenTextarea.setAttribute('cols', '60');
 screenTextarea.setAttribute('rows', '8');
+screenTextarea.setAttribute('autofocus', true);
+// screenTextarea.setAttribute('readonly', true);
+screenTextarea.setAttribute('placeholder', 'Welcome mr.Wayne!');
 // contain main => mainScren
 main.append(mainContainer);
 mainContainer.append(mainScreen);
@@ -64,6 +66,7 @@ keyboard.classList.add('keyboard');
 const keyboardBody = document.createElement('div');
 keyboardBody.classList.add('keyboard__body');
 // create keyBoardRows
+
 for (let i = 0; i < 5; i++) {
 	// create row
 	let row = document.createElement('div');
@@ -75,14 +78,7 @@ for (let i = 0; i < 5; i++) {
 			while (j < 14) {
 				let btn = document.createElement('div');
 				btn.classList.add('keyboard__btn');
-				btn.innerHTML = typeKeyboard[`${typeLang}`][i][j];
-				if (j === 0) {
-					btn.classList.add('tilda');
-				}
-				if (j === 13) {
-					btn.classList.add('backspace');
-					btn.classList.add('not-square-btn');
-				}
+				btn.setAttribute('id', keyId[i][j]);
 				row.append(btn);
 				j++
 			}
@@ -91,13 +87,17 @@ for (let i = 0; i < 5; i++) {
 			while (j < 15) {
 				let btn = document.createElement('div');
 				btn.classList.add('keyboard__btn');
-				btn.innerHTML = typeKeyboard[`${typeLang}`][i][j];
+				btn.setAttribute('id', keyId[i][j]);
+				if (j !== 14 && j !== 0) {
+					btn.classList.add('capsable');
+				}
 				if (j === 0) {
 					btn.classList.add('tab');
-				}
-				if (j === 14) {
+				} else if (j === 14) {
 					btn.classList.add('del');
 					btn.classList.add('not-square-btn');
+				} else {
+					btn.classList.add('capsable');
 				}
 				row.append(btn);
 				j++
@@ -107,14 +107,9 @@ for (let i = 0; i < 5; i++) {
 			while (j < 13) {
 				let btn = document.createElement('div');
 				btn.classList.add('keyboard__btn');
-				btn.innerHTML = typeKeyboard[`${typeLang}`][i][j];
-				if (j === 0) {
-					btn.classList.add('caps-lock');
-					btn.classList.add('not-square-btn');
-				}
-				if (j === 12) {
-					btn.classList.add('enter');
-					btn.classList.add('not-square-btn');
+				btn.setAttribute('id', keyId[i][j]);
+				if (j !== 12 && j !== 0) {
+					btn.classList.add('capsable');
 				}
 				row.append(btn);
 				j++
@@ -124,17 +119,9 @@ for (let i = 0; i < 5; i++) {
 			while (j < 13) {
 				let btn = document.createElement('div');
 				btn.classList.add('keyboard__btn');
-				btn.innerHTML = typeKeyboard[`${typeLang}`][i][j];
-				if (j === 0) {
-					btn.classList.add('left-shift');
-					btn.classList.add('not-square-btn');
-				}
-				if (j === 11) {
-					btn.classList.add('up');
-				}
-				if (j === 12) {
-					btn.classList.add('right-shift');
-					btn.classList.add('not-square-btn');
+				btn.setAttribute('id', keyId[i][j]);
+				if (j !== 0 && j < 11) {
+					btn.classList.add('capsable');
 				}
 				row.append(btn);
 				j++
@@ -144,39 +131,7 @@ for (let i = 0; i < 5; i++) {
 			while (j < 9) {
 				let btn = document.createElement('div');
 				btn.classList.add('keyboard__btn');
-				btn.innerHTML = typeKeyboard[`${typeLang}`][i][j];
-				if (j === 0) {
-					btn.classList.add('ctrl');
-					btn.classList.add('right-ctrl');
-					btn.classList.add('not-square-btn');
-				}
-				if (j === 1) {
-					btn.classList.add('win');
-				}
-				if (j === 2) {
-					btn.classList.add('alt');
-					btn.classList.add('right-alt');
-					btn.classList.add('not-square-btn');
-				}
-				if (j === 3) {
-					btn.classList.add('space');
-					btn.classList.add('not-square-btn');
-				}
-				if (j === 4) {
-					btn.classList.add('alt');
-				}
-				if (j === 5) {
-					btn.classList.add('left');
-				}
-				if (j === 6) {
-					btn.classList.add('down');
-				}
-				if (j === 7) {
-					btn.classList.add('right');
-				}
-				if (j === 8) {
-					btn.classList.add('ctrl');
-				}
+				btn.setAttribute('id', keyId[i][j]);
 				row.append(btn);
 				j++
 			}
@@ -233,14 +188,84 @@ languageButtons.after(text1)
 text1.after(text2)
 
 
-// get buttons and add event listener
-const buttons = document.querySelectorAll('.keyboard__btn');
-for (let button of buttons) {
-	button.addEventListener('click', () => {
-		if (button === document.querySelector('.space')) {
-			screenTextarea.value += ' ';
+// add event to keydown/keyup
+
+screenTextarea.addEventListener('focus', () => {
+	// отменять ввод с клавиатуры
+
+})
+
+
+//! ----------------------------
+let allButtons = document.querySelectorAll('.keyboard__btn');
+
+const showButtonValue = function (buttons, values, options) {
+	for (let button of buttons) {
+		let defaultValue = values[button.id][options.lang]['default'];
+		let capsValue = values[button.id][options.lang]['caps'];
+		let shiftValue = values[button.id][options.lang]['shift'];
+		button.innerText = defaultValue;
+		if (options.caps && capsValue) {
+			button.innerText = capsValue;
 		}
-		screenTextarea.value += button.innerText;
-	})
+		if (options.shift) {
+			button.innerText = shiftValue;
+		}
+	}
+}
+showButtonValue(allButtons, keyValues, keyboardOption);
+
+
+// button idintifier
+const Space = document.querySelector('#Space');
+const ShiftLeft = document.querySelector('#ShiftLeft');
+const ShiftRight = document.querySelector('#ShiftRight');
+const CapsLock = document.querySelector('#CapsLock');
+const CtrlLeft = document.querySelector('#ControlLeft');
+const CtrlRight = document.querySelector('#ControlRight');
+const AltLeft = document.querySelector('#AltLeft');
+const AltRight = document.querySelector('#AlRight');
+const Meta = document.querySelector('#MetaLeft');
+const ArrowLeft = document.querySelector('#ArrowLeft');
+const ArrowDown = document.querySelector('#ArrowDown');
+const ArrowRight = document.querySelector('#ArrowRight');
+const ArrowUp = document.querySelector('#ArrowUp');
+
+
+
+function clickOnShift() {
+	function pressShift(option) {
+		option.shift = option.shift ? false : true
+	}
+
+	pressShift(keyboardOption)
+	showButtonValue(allButtons, keyValues, keyboardOption)
+	this.addEventListener('mouseup', clickOnShift)
 }
 
+function clickOnCaps(option) {
+	let capsable = document.querySelectorAll('.capsable');
+
+	function pressCaps(option) {
+		option.caps = option.caps ? false : true;
+	}
+
+	if (option.caps) {
+		for (let button of capsable) {
+			button.innerText = keyValues[button.id][option.lang]['caps']
+		}
+	}
+	CapsLock.classList.toggle('caps-colored')
+	pressCaps(keyboardOption)
+	showButtonValue(capsable, keyValues, keyboardOption)
+}
+
+
+CapsLock.addEventListener('click', () => {
+	clickOnCaps(keyboardOption)
+})
+
+
+
+ShiftLeft.addEventListener('mousedown', clickOnShift)
+ShiftRight.addEventListener('mousedown', clickOnShift)

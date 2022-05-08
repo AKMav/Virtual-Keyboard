@@ -138,6 +138,15 @@
 	outline: none;
 }
 
+#screen::placeholder {
+	text-transform: uppercase;
+	display: flex;
+	text-align: center;
+	position: relative;
+	top: 60px;
+	color: #4C4C4C;
+}
+
 .keyboard {
 	width: 1024px;
 	height: 590px;
@@ -174,7 +183,7 @@
 	color: #B2B2B2;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
-	font-weight: normal;
+	font-weight: bold;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -183,41 +192,52 @@
 
 .keyboard__btn:hover {
 	cursor: pointer;
-	background-color: #4C4C4C;
+	background-color: #B22222;
 	border-radius: 10px;
 	color: black;
-	font-weight: bold;
+
 }
 
 .keyboard__btn:active {
 	border-radius: 50%;
-	background-color: #5B5B5B;
+	background-color: #8B0000;
 }
 
-.not-square-btn:active {
-	border-radius: 15px;
+.caps-colored {
+	background-color: #B22222;
 }
 
-.space {
-	width: 281px;
-}
+.caps-colored:hover {}
 
-.left-shift {
+#ShiftLeft,
+#CapsLock,
+#ControlLeft,
+#AltLeft,
+#Delete {
 	width: 75px;
 }
 
-.right-shift,
-.backspace {
+#ShiftRight {
 	width: 106px;
 }
 
-.caps-lock,
-.right-ctrl,
-.right-alt,
-.del {
-	width: 75px;
+#Space {
+	width: 285px;
 }
 
-.enter {
+#ShiftLeft:active,
+#ShiftRight:active,
+#Backspace:active,
+#CapsLock:active,
+#Enter:active,
+#ControlLeft:active,
+#AltLeft:active,
+#Delete:active,
+#Space:active {
+	border-radius: 15px;
+}
+
+#Backspace,
+#Enter {
 	width: 106px;
 }
