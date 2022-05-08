@@ -79,6 +79,9 @@ for (let i = 0; i < 5; i++) {
 			while (j < 14) {
 				let btn = document.createElement('div');
 				btn.classList.add('keyboard__btn');
+				if (j === 0) {
+					btn.classList.add('capsable');
+				}
 				btn.setAttribute('id', keyId[i][j]);
 				row.append(btn);
 				j++
@@ -91,12 +94,6 @@ for (let i = 0; i < 5; i++) {
 				btn.setAttribute('id', keyId[i][j]);
 				if (j !== 14 && j !== 0) {
 					btn.classList.add('capsable');
-				}
-				if (j === 0) {
-					btn.classList.add('tab');
-				} else if (j === 14) {
-					btn.classList.add('del');
-					btn.classList.add('not-square-btn');
 				} else {
 					btn.classList.add('capsable');
 				}
@@ -292,6 +289,11 @@ function colorNotSquare(event) {
 	})
 }
 
+function colorSquare(event) {
+	const elements = documen.querySelector('.keyboard__btn');
+
+}
+
 function removeColorNotSquare(event) {
 	const targetElements = [CapsLock, ShiftLeft, ControlLeft, AltLeft, Space, Backspace, Delete, Enter, ShiftRight];
 	targetElements.forEach(el => {
@@ -301,29 +303,7 @@ function removeColorNotSquare(event) {
 	})
 }
 
-function changeColor(event) {
 
-	function colorNotSquare(event) {
-		const targetElements = [CapsLock, ShiftLeft, ControlLeft, AltLeft, Space, Backspace, Delete, Enter, ShiftRight];
-		targetElements.forEach(el => {
-			if (event.code === el.id) {
-				el.setAttribute('pressed', true)
-			}
-		})
-	}
-
-	function removeColorNotSquare(event) {
-		const targetElements = [CapsLock, ShiftLeft, ControlLeft, AltLeft, Space, Backspace, Delete, Enter, ShiftRight];
-		targetElements.forEach(el => {
-			if (event.code === el.id) {
-				el.removeAttribute('pressed')
-			}
-		})
-	}
-
-	colorNotSquare(event)
-	removeColorNotSquare(event)
-}
 
 
 
@@ -361,4 +341,3 @@ function buttonHandler(event) {
 
 
 document.addEventListener('keydown', buttonHandler)
-console.log(CapsLock.id)
