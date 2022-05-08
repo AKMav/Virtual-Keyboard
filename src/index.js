@@ -8,6 +8,7 @@ const keyboardOption = {
 
 
 
+
 const body = document.querySelector('body');
 // create wrapper + style
 const wrapper = document.createElement('div');
@@ -217,7 +218,9 @@ showButtonValue(allButtons, keyValues, keyboardOption);
 
 
 // button idintifier
+const Delete = document.querySelector('#Delete');
 const Space = document.querySelector('#Space');
+const Backspace = document.querySelector('#Backspace');
 const ShiftLeft = document.querySelector('#ShiftLeft');
 const ShiftRight = document.querySelector('#ShiftRight');
 const CapsLock = document.querySelector('#CapsLock');
@@ -230,6 +233,7 @@ const ArrowLeft = document.querySelector('#ArrowLeft');
 const ArrowDown = document.querySelector('#ArrowDown');
 const ArrowRight = document.querySelector('#ArrowRight');
 const ArrowUp = document.querySelector('#ArrowUp');
+const Enter = document.querySelector('#Enter');
 
 
 
@@ -269,3 +273,92 @@ CapsLock.addEventListener('click', () => {
 
 ShiftLeft.addEventListener('mousedown', clickOnShift)
 ShiftRight.addEventListener('mousedown', clickOnShift)
+
+
+
+
+
+// document.addEventListener('keydown', buttonHandlerColor)
+
+document.addEventListener('keydown', colorNotSquare);
+document.addEventListener('keyup', removeColorNotSquare);
+
+function colorNotSquare(event) {
+	const targetElements = [ShiftLeft, ControlLeft, AltLeft, Space, Backspace, Delete, Enter, ShiftRight];
+	targetElements.forEach(el => {
+		if (event.code === el.id) {
+			el.setAttribute('pressed', true)
+		}
+	})
+}
+
+function removeColorNotSquare(event) {
+	const targetElements = [CapsLock, ShiftLeft, ControlLeft, AltLeft, Space, Backspace, Delete, Enter, ShiftRight];
+	targetElements.forEach(el => {
+		if (event.code === el.id) {
+			el.removeAttribute('pressed')
+		}
+	})
+}
+
+function changeColor(event) {
+
+	function colorNotSquare(event) {
+		const targetElements = [CapsLock, ShiftLeft, ControlLeft, AltLeft, Space, Backspace, Delete, Enter, ShiftRight];
+		targetElements.forEach(el => {
+			if (event.code === el.id) {
+				el.setAttribute('pressed', true)
+			}
+		})
+	}
+
+	function removeColorNotSquare(event) {
+		const targetElements = [CapsLock, ShiftLeft, ControlLeft, AltLeft, Space, Backspace, Delete, Enter, ShiftRight];
+		targetElements.forEach(el => {
+			if (event.code === el.id) {
+				el.removeAttribute('pressed')
+			}
+		})
+	}
+
+	colorNotSquare(event)
+	removeColorNotSquare(event)
+}
+
+
+
+
+
+
+function buttonHandler(event) {
+	if (event.altKey && event.ctrlKey) {
+		keyboardOption.lang = keyboardOption.lang === 'en' ? 'ru' : 'en';
+		showButtonValue(allButtons, keyValues, keyboardOption)
+	}
+	// switch (e.code) {
+	// 	case :
+
+	// 		break;
+
+	// 	default:
+	// 		break;
+	// }
+	if (event.code === 'CapsLock') {
+		clickOnCaps(keyboardOption)
+		document.removeEventListener('keydown', buttonHandler)
+		document.addEventListener('keyup', () => {
+			document.addEventListener('keydown', buttonHandler)
+		})
+	}
+	if (event.code === 'ShiftLeft') {
+		ShiftLeft.classList.add('colored-not-square')
+		document.addEventListener('keyup', () => {
+			ShiftLeft.classList.remove('colored-not-square')
+		})
+	}
+
+}
+
+
+document.addEventListener('keydown', buttonHandler)
+console.log(CapsLock.id)

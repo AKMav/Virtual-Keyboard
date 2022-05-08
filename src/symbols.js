@@ -75,7 +75,7 @@ export const keyValues = {
 	},
 	KeyW: {
 		en: { default: 'w', shift: 'W', caps: 'W' },
-		ru: { default: 'ц', shift: 'Ц', caps: 'W' },
+		ru: { default: 'ц', shift: 'Ц', caps: 'Ц' },
 	},
 
 	KeyE: {

@@ -188,6 +188,7 @@
 	justify-content: center;
 	align-items: center;
 	transition: all 0.09s;
+	user-select: none;
 }
 
 .keyboard__btn:hover {
@@ -203,9 +204,22 @@
 	background-color: #8B0000;
 }
 
-.caps-colored {
-	background-color: #B22222;
+.colored-square {
+	border-radius: 50%;
+	background-color: #8B0000;
 }
+
+.keyboard__btn[pressed] {
+	border-radius: 15px;
+	background-color: #8B0000;
+}
+
+
+.caps-colored {
+	background-color: #8B0000;
+}
+
+
 
 .caps-colored:hover {}
 
