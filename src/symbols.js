@@ -9,8 +9,8 @@ export const keyId = [
 export const keyValues = {
 	// row 0
 	Backquote: {
-		en: { default: '`', shift: '~', caps: '`' },
-		ru: { default: 'ё', shift: 'Ё', caps: 'Ё' },
+		en: { default: '`', shift: '~', shiftCaps: '~', caps: '`' },
+		ru: { default: 'ё', shift: 'Ё', shiftCaps: 'Ё', caps: 'Ё' },
 	},
 	Digit1: {
 		en: { default: '1', shift: '!', caps: '1' },
@@ -70,45 +70,45 @@ export const keyValues = {
 		ru: { default: 'Tab', shift: 'Tab', caps: 'Tab', },
 	},
 	KeyQ: {
-		en: { default: 'q', shift: 'Q', caps: 'Q' },
-		ru: { default: 'й', shift: 'Й', caps: 'Й' },
+		en: { default: 'q', shift: 'Q', shiftCaps: 'q', caps: 'Q' },
+		ru: { default: 'й', shift: 'Й', shiftCaps: 'й', caps: 'Й' },
 	},
 	KeyW: {
-		en: { default: 'w', shift: 'W', caps: 'W' },
-		ru: { default: 'ц', shift: 'Ц', caps: 'Ц' },
+		en: { default: 'w', shift: 'W', shiftCaps: 'w', caps: 'W' },
+		ru: { default: 'ц', shift: 'Ц', shiftCaps: 'ц', caps: 'Ц' },
 	},
 
 	KeyE: {
-		en: { default: 'e', shift: 'E', caps: 'E' },
-		ru: { default: 'у', shift: 'У', caps: 'У' },
+		en: { default: 'e', shift: 'E', shiftCaps: 'e', caps: 'E' },
+		ru: { default: 'у', shift: 'У', shiftCaps: 'у', caps: 'У' },
 	},
 	KeyR: {
-		en: { default: 'r', shift: 'R', caps: 'R' },
-		ru: { default: 'к', shift: 'К', caps: 'К' },
+		en: { default: 'r', shift: 'R', shiftCaps: 'r', caps: 'R' },
+		ru: { default: 'к', shift: 'К', shiftCaps: 'к', caps: 'К' },
 	},
 	KeyT: {
-		en: { default: 't', shift: 'T', caps: 'T' },
-		ru: { default: 'е', shift: 'Е', caps: 'Е' },
+		en: { default: 't', shift: 'T', shiftCaps: 't', caps: 'T' },
+		ru: { default: 'е', shift: 'Е', shiftCaps: 'е', caps: 'Е' },
 	},
 	KeyY: {
-		en: { default: 'y', shift: 'Y', caps: 'Y' },
-		ru: { default: 'н', shift: 'Н', caps: 'Н' },
+		en: { default: 'y', shift: 'Y', shiftCaps: 'y', caps: 'Y' },
+		ru: { default: 'н', shift: 'Н', shiftCaps: 'н', caps: 'Н' },
 	},
 	KeyU: {
-		en: { default: 'u', shift: 'U', caps: 'U' },
-		ru: { default: 'г', shift: 'Г', caps: 'Г' },
+		en: { default: 'u', shift: 'U', shiftCaps: 'u', caps: 'U' },
+		ru: { default: 'г', shift: 'Г', shiftCaps: 'г', caps: 'Г' },
 	},
 	KeyI: {
-		en: { default: 'i', shift: 'I', caps: 'I' },
-		ru: { default: 'ш', shift: 'Ш', caps: 'Ш' },
+		en: { default: 'i', shift: 'I', shiftCaps: 'i', caps: 'I' },
+		ru: { default: 'ш', shift: 'Ш', shiftCaps: 'ш', caps: 'Ш' },
 	},
 	KeyO: {
-		en: { default: 'o', shift: 'O', caps: 'O' },
-		ru: { default: 'щ', shift: 'Щ', caps: 'Щ' },
+		en: { default: 'o', shift: 'O', shiftCaps: 'o', caps: 'O' },
+		ru: { default: 'щ', shift: 'Щ', shiftCaps: 'щ', caps: 'Щ' },
 	},
 	KeyP: {
-		en: { default: 'p', shift: 'P', caps: 'P' },
-		ru: { default: 'з', shift: 'З', caps: 'З' },
+		en: { default: 'p', shift: 'P', shiftCaps: 'p', caps: 'P' },
+		ru: { default: 'з', shift: 'З', shiftCaps: 'з', caps: 'З' },
 	},
 	BracketLeft: {
 		en: { default: '[', shift: '{', caps: '[' },
@@ -119,8 +119,8 @@ export const keyValues = {
 		ru: { default: ']', shift: '}', caps: ']' },
 	},
 	Backslash: {
-		en: { default: '\\', shift: '|', caps: '\\' },
-		ru: { default: '\\', shift: '|', caps: '\\' },
+		en: { default: '\\', shift: '|', shiftCaps: '/', caps: '\\' },
+		ru: { default: '\\', shift: '|', shiftCaps: '/', caps: '\\' },
 	},
 	Delete: {
 		en: { default: 'Delete', shift: 'Delete', caps: 'Delete' },
@@ -132,48 +132,48 @@ export const keyValues = {
 		ru: { default: 'CapsLock', shift: 'CapsLock', caps: 'CapsLock' },
 	},
 	KeyA: {
-		en: { default: 'a', shift: 'A', caps: 'A' },
-		ru: { default: 'ф', shift: 'Ф', caps: 'Ф' },
+		en: { default: 'a', shift: 'A', shiftCaps: 'a', caps: 'A' },
+		ru: { default: 'ф', shift: 'Ф', shiftCaps: 'ф', caps: 'Ф' },
 	},
 	KeyS: {
-		en: { default: 's', shift: 'S', caps: 'S' },
-		ru: { default: 'ы', shift: 'Ы', caps: 'Ы' },
+		en: { default: 's', shift: 'S', shiftCaps: 's', caps: 'S' },
+		ru: { default: 'ы', shift: 'Ы', shiftCaps: 'ы', caps: 'Ы' },
 	},
 	KeyD: {
-		en: { default: 'd', shift: 'D', caps: 'D' },
-		ru: { default: 'в', shift: 'В', caps: 'В' },
+		en: { default: 'd', shift: 'D', shiftCaps: 'd', caps: 'D' },
+		ru: { default: 'в', shift: 'В', shiftCaps: 'в', caps: 'В' },
 	},
 	KeyF: {
-		en: { default: 'f', shift: 'F', caps: 'F' },
-		ru: { default: 'а', shift: 'А', caps: 'А' },
+		en: { default: 'f', shift: 'F', shiftCaps: 'f', caps: 'F' },
+		ru: { default: 'а', shift: 'А', shiftCaps: 'а', caps: 'А' },
 	},
 	KeyG: {
-		en: { default: 'g', shift: 'G', caps: 'G' },
-		ru: { default: 'п', shift: 'П', caps: 'П' },
+		en: { default: 'g', shift: 'G', shiftCaps: 'g', caps: 'G' },
+		ru: { default: 'п', shift: 'П', shiftCaps: 'п', caps: 'П' },
 	},
 	KeyH: {
-		en: { default: 'h', shift: 'H', caps: 'H' },
-		ru: { default: 'р', shift: 'Р', caps: 'Р' },
+		en: { default: 'h', shift: 'H', shiftCaps: 'h', caps: 'H' },
+		ru: { default: 'р', shift: 'Р', shiftCaps: 'р', caps: 'Р' },
 	},
 	KeyJ: {
-		en: { default: 'j', shift: 'J', caps: 'J' },
-		ru: { default: 'о', shift: 'О', caps: 'О' },
+		en: { default: 'j', shift: 'J', shiftCaps: 'j', caps: 'J' },
+		ru: { default: 'о', shift: 'О', shiftCaps: 'о', caps: 'О' },
 	},
 	KeyK: {
-		en: { default: 'k', shift: 'K', caps: 'K' },
-		ru: { default: 'л', shift: 'Л', caps: 'Л' },
+		en: { default: 'k', shift: 'K', shiftCaps: 'k', caps: 'K' },
+		ru: { default: 'л', shift: 'Л', shiftCaps: 'л', caps: 'Л' },
 	},
 	KeyL: {
-		en: { default: 'l', shift: 'L', caps: 'L' },
-		ru: { default: 'д', shift: 'Д', caps: 'Д' },
+		en: { default: 'l', shift: 'L', shiftCaps: 'l', caps: 'L' },
+		ru: { default: 'д', shift: 'Д', shiftCaps: 'д', caps: 'Д' },
 	},
 	Semicolon: {
-		en: { default: ';', shift: ':', caps: ';' },
-		ru: { default: 'ж', shift: 'Ж', caps: 'Ж' },
+		en: { default: ';', shift: ':', shiftCaps: ';', caps: ';' },
+		ru: { default: 'ж', shift: 'Ж', shiftCaps: 'ж', caps: 'Ж' },
 	},
 	Quote: {
-		en: { default: '\'', shift: '"', caps: '\'' },
-		ru: { default: 'э', shift: 'Э', caps: 'Э' },
+		en: { default: '\'', shift: '"', shiftCaps: '\'', caps: '\'' },
+		ru: { default: 'э', shift: 'Э', shiftCaps: 'э', caps: 'Э' },
 	},
 	Enter: {
 		en: { default: 'Enter', shift: 'Enter', caps: 'Enter' },
@@ -185,44 +185,44 @@ export const keyValues = {
 		ru: { default: 'Shift', shift: 'Shift', caps: 'Shift' },
 	},
 	KeyZ: {
-		en: { default: 'z', shift: 'Z', caps: 'Z' },
-		ru: { default: 'я', shift: 'Я', caps: 'Я' },
+		en: { default: 'z', shift: 'Z', shiftCaps: 'z', caps: 'Z' },
+		ru: { default: 'я', shift: 'Я', shiftCaps: 'я', caps: 'Я' },
 	},
 	KeyX: {
-		en: { default: 'x', shift: 'X', caps: 'X' },
-		ru: { default: 'ч', shift: 'Ч', caps: 'Ч' },
+		en: { default: 'x', shift: 'X', shiftCaps: 'x', caps: 'X' },
+		ru: { default: 'ч', shift: 'Ч', shiftCaps: 'ч', caps: 'Ч' },
 	},
 	KeyC: {
-		en: { default: 'c', shift: 'C', caps: 'C' },
-		ru: { default: 'с', shift: 'С', caps: 'С' },
+		en: { default: 'c', shift: 'C', shiftCaps: 'c', caps: 'C' },
+		ru: { default: 'с', shift: 'С', shiftCaps: 'с', caps: 'С' },
 	},
 	KeyV: {
-		en: { default: 'v', shift: 'V', caps: 'V' },
-		ru: { default: 'м', shift: 'М', caps: 'М' },
+		en: { default: 'v', shift: 'V', shiftCaps: 'v', caps: 'V' },
+		ru: { default: 'м', shift: 'М', shiftCaps: 'м', caps: 'М' },
 	},
 	KeyB: {
-		en: { default: 'b', shift: 'B', caps: 'B' },
-		ru: { default: 'и', shift: 'И', caps: 'И' },
+		en: { default: 'b', shift: 'B', shiftCaps: 'b', caps: 'B' },
+		ru: { default: 'и', shift: 'И', shiftCaps: 'и', caps: 'И' },
 	},
 	KeyN: {
-		en: { default: 'n', shift: 'N', caps: 'N' },
-		ru: { default: 'т', shift: 'Т', caps: 'Т' },
+		en: { default: 'n', shift: 'N', shiftCaps: 'n', caps: 'N' },
+		ru: { default: 'т', shift: 'Т', shiftCaps: 'т', caps: 'Т' },
 	},
 	KeyM: {
-		en: { default: 'm', shift: 'M', caps: 'M' },
-		ru: { default: 'ь', shift: 'Ь', caps: 'Ь' },
+		en: { default: 'm', shift: 'M', shiftCaps: 'm', caps: 'M' },
+		ru: { default: 'ь', shift: 'Ь', shiftCaps: 'ь', caps: 'Ь' },
 	},
 	Comma: {
-		en: { default: ',', shift: '<', caps: ',' },
-		ru: { default: 'б', shift: 'Б', caps: 'Б' },
+		en: { default: ',', shift: '<', shiftCaps: '<', caps: ',' },
+		ru: { default: 'б', shift: 'Б', shiftCaps: 'б', caps: 'Б' },
 	},
 	Period: {
-		en: { default: '.', shift: '>', caps: '.' },
-		ru: { default: 'ю', shift: 'Ю', caps: 'Ю' },
+		en: { default: '.', shift: '>', shiftCaps: '>', caps: '.' },
+		ru: { default: 'ю', shift: 'Ю', shiftCaps: 'ю', caps: 'Ю' },
 	},
 	Slash: {
-		en: { default: '/', shift: '?', caps: '/' },
-		ru: { default: '.', shift: ',', caps: '.' },
+		en: { default: '/', shift: '?', shiftCaps: '?', caps: '/' },
+		ru: { default: '.', shift: ',', shiftCaps: ',', caps: '.' },
 	},
 	ArrowUp: {
 		en: { default: '▲', shift: '▲', caps: '▲' },

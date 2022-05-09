@@ -1,6 +1,6 @@
 .wrapper {
 	width: 100vw;
-	height: 100vh;
+	min-height: 100vh;
 	background-color: #B2B2B2;
 }
 
@@ -213,6 +213,10 @@
 	background-color: #8B0000;
 }
 
+.square[pressed] {
+	background-color: #8B0000;
+	border-radius: 50%;
+}
 
 .caps-colored {
 	background-color: #8B0000;

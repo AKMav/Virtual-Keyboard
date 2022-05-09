@@ -7,8 +7,6 @@ const keyboardOption = {
 }
 
 
-
-
 const body = document.querySelector('body');
 // create wrapper + style
 const wrapper = document.createElement('div');
@@ -82,6 +80,9 @@ for (let i = 0; i < 5; i++) {
 				if (j === 0) {
 					btn.classList.add('capsable');
 				}
+				if (j !== 13) {
+					btn.classList.add('square');
+				}
 				btn.setAttribute('id', keyId[i][j]);
 				row.append(btn);
 				j++
@@ -94,8 +95,7 @@ for (let i = 0; i < 5; i++) {
 				btn.setAttribute('id', keyId[i][j]);
 				if (j !== 14 && j !== 0) {
 					btn.classList.add('capsable');
-				} else {
-					btn.classList.add('capsable');
+					btn.classList.add('square');
 				}
 				row.append(btn);
 				j++
@@ -108,6 +108,7 @@ for (let i = 0; i < 5; i++) {
 				btn.setAttribute('id', keyId[i][j]);
 				if (j !== 12 && j !== 0) {
 					btn.classList.add('capsable');
+					btn.classList.add('square');
 				}
 				row.append(btn);
 				j++
@@ -120,6 +121,10 @@ for (let i = 0; i < 5; i++) {
 				btn.setAttribute('id', keyId[i][j]);
 				if (j !== 0 && j < 11) {
 					btn.classList.add('capsable');
+					btn.classList.add('square');
+				}
+				if (j === 11) {
+					btn.classList.add('square');
 				}
 				row.append(btn);
 				j++
@@ -129,6 +134,9 @@ for (let i = 0; i < 5; i++) {
 			while (j < 9) {
 				let btn = document.createElement('div');
 				btn.classList.add('keyboard__btn');
+				if (j !== 0 && j !== 2 && j !== 3) {
+					btn.classList.add('square');
+				}
 				btn.setAttribute('id', keyId[i][j]);
 				row.append(btn);
 				j++
@@ -193,12 +201,14 @@ screenTextarea.addEventListener('focus', () => {
 
 })
 
-
 //! ----------------------------
 let allButtons = document.querySelectorAll('.keyboard__btn');
 
 const showButtonValue = function (buttons, values, options) {
+	let capsable = document.querySelectorAll('.capsable');
+
 	for (let button of buttons) {
+		let shiftCaps = values[button.id][options.lang]['shiftCaps'];
 		let defaultValue = values[button.id][options.lang]['default'];
 		let capsValue = values[button.id][options.lang]['caps'];
 		let shiftValue = values[button.id][options.lang]['shift'];
@@ -206,8 +216,15 @@ const showButtonValue = function (buttons, values, options) {
 		if (options.caps && capsValue) {
 			button.innerText = capsValue;
 		}
-		if (options.shift) {
+		if (options.shift && !options.caps) {
 			button.innerText = shiftValue;
+		}
+		if (options.shift && options.caps) {
+			if (shiftCaps) {
+				button.innerText = shiftCaps;
+			} else {
+				button.innerText = shiftValue;
+			}
 		}
 	}
 }
@@ -261,22 +278,14 @@ function clickOnCaps(option) {
 	showButtonValue(capsable, keyValues, keyboardOption)
 }
 
-
 CapsLock.addEventListener('click', () => {
 	clickOnCaps(keyboardOption)
 })
 
-
-
 ShiftLeft.addEventListener('mousedown', clickOnShift)
 ShiftRight.addEventListener('mousedown', clickOnShift)
 
-
-
-
-
 // document.addEventListener('keydown', buttonHandlerColor)
-
 document.addEventListener('keydown', colorNotSquare);
 document.addEventListener('keyup', removeColorNotSquare);
 
@@ -289,11 +298,6 @@ function colorNotSquare(event) {
 	})
 }
 
-function colorSquare(event) {
-	const elements = documen.querySelector('.keyboard__btn');
-
-}
-
 function removeColorNotSquare(event) {
 	const targetElements = [CapsLock, ShiftLeft, ControlLeft, AltLeft, Space, Backspace, Delete, Enter, ShiftRight];
 	targetElements.forEach(el => {
@@ -303,11 +307,30 @@ function removeColorNotSquare(event) {
 	})
 }
 
+// for square buttons
+function colorSquare(event) {
+	let squareElements = document.querySelectorAll('.square');
+	squareElements.forEach(el => {
+		if (event.code === 'ControlRight') {
+			ControlRight.setAttribute('pressed', true)
+		}
+		if (el.innerText === event.key) {
+			el.setAttribute('pressed', true)
+		}
+	})
+}
 
+function removeSquareColor(event) {
+	let squareElements = document.querySelectorAll('.square');
 
+	squareElements.forEach(el => {
+		el.removeAttribute('pressed')
+	})
 
+}
 
-
+document.addEventListener('keydown', colorSquare)
+document.addEventListener('keyup', removeSquareColor)
 
 
 function buttonHandler(event) {
@@ -315,14 +338,14 @@ function buttonHandler(event) {
 		keyboardOption.lang = keyboardOption.lang === 'en' ? 'ru' : 'en';
 		showButtonValue(allButtons, keyValues, keyboardOption)
 	}
-	// switch (e.code) {
-	// 	case :
+	switch (event.code) {
+		case 'Tab':
 
-	// 		break;
+			break;
 
-	// 	default:
-	// 		break;
-	// }
+		default:
+			break;
+	}
 	if (event.code === 'CapsLock') {
 		clickOnCaps(keyboardOption)
 		document.removeEventListener('keydown', buttonHandler)
@@ -336,7 +359,6 @@ function buttonHandler(event) {
 			ShiftLeft.classList.remove('colored-not-square')
 		})
 	}
-
 }
 
 
