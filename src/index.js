@@ -93,9 +93,12 @@ for (let i = 0; i < 5; i++) {
 				let btn = document.createElement('div');
 				btn.classList.add('keyboard__btn');
 				btn.setAttribute('id', keyId[i][j]);
-				if (j !== 14 && j !== 0) {
+				if (j !== 14) {
 					btn.classList.add('capsable');
 					btn.classList.add('square');
+				}
+				if (j !== 0) {
+					btn.classList.add('capsable');
 				}
 				row.append(btn);
 				j++
@@ -314,7 +317,7 @@ function colorSquare(event) {
 		if (event.code === 'ControlRight') {
 			ControlRight.setAttribute('pressed', true)
 		}
-		if (el.innerText === event.key) {
+		if (el.id === event.code) {
 			el.setAttribute('pressed', true)
 		}
 	})
@@ -348,12 +351,39 @@ buttonRu.addEventListener('mouseup', () => {
 })
 
 
+// textarea screenTextarea make string
+
+
+
+// function makeString(button) {
+// 	let string = screenTextarea.value;
+
+// }
+
+screenTextarea.addEventListener('mouseup', (event) => {
+
+
+})
+
+
+function writeText(button) {
+	let string = screenTextarea.value;
+	let cursorPosition = screenTextarea.selectionStart;
+	let char = button.innerText;
+	let firstHalf = string.slice(0, cursorPosition) + char;
+	screenTextarea.value = firstHalf.slice(0, firstHalf.length - 1) + string.slice(cursorPosition, string.length);
+	screenTextarea.setSelectionRange(cursorPosition, cursorPosition)
+}
+
+
+alert('Здравствуй дорогой друг! Я к сожалению, не успел доделать до конца, проверь пожалуйста мою работу в среду 11 мая. Я успею доделать. Осталось немного')
 function buttonHandler(event) {
 	if (event.altKey && event.ctrlKey) {
 		changeLang()
 	}
 	switch (event.code) {
-		case 'Tab':
+		case 'Backquote':
+			writeText(Backquote)
 			break;
 
 		default:
@@ -376,3 +406,12 @@ function buttonHandler(event) {
 
 
 document.addEventListener('keydown', buttonHandler)
+
+
+
+// function makeString (value, char) {
+
+// 	let firstHalf = value.s(0, value.length - 1);
+
+// }
+
