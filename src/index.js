@@ -326,21 +326,34 @@ function removeSquareColor(event) {
 	squareElements.forEach(el => {
 		el.removeAttribute('pressed')
 	})
-
 }
 
 document.addEventListener('keydown', colorSquare)
 document.addEventListener('keyup', removeSquareColor)
 
 
+// change language
+function changeLang() {
+	keyboardOption.lang = keyboardOption.lang === 'en' ? 'ru' : 'en';
+	showButtonValue(allButtons, keyValues, keyboardOption)
+}
+
+buttonEn.addEventListener('mouseup', () => {
+	keyboardOption.lang = 'en';
+	showButtonValue(allButtons, keyValues, keyboardOption)
+})
+buttonRu.addEventListener('mouseup', () => {
+	keyboardOption.lang = 'ru';
+	showButtonValue(allButtons, keyValues, keyboardOption)
+})
+
+
 function buttonHandler(event) {
 	if (event.altKey && event.ctrlKey) {
-		keyboardOption.lang = keyboardOption.lang === 'en' ? 'ru' : 'en';
-		showButtonValue(allButtons, keyValues, keyboardOption)
+		changeLang()
 	}
 	switch (event.code) {
 		case 'Tab':
-
 			break;
 
 		default:
