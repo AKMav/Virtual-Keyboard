@@ -2,13 +2,24 @@ import { keyId, keyValues } from './symbols.js';
 import './reset.css';
 import './style.css';
 
-
 const keyboardOption = {
 	lang: 'en',
 	shift: false,
 	caps: false,
 }
 
+window.addEventListener('load', () => {
+	if (localStorage.lang) {
+		keyboardOption.lang = localStorage.getItem('lang');
+		showButtonValue(allButtons, keyValues, keyboardOption);
+	}
+})
+
+
+
+window.addEventListener('unload', () => {
+	localStorage.setItem('lang', keyboardOption.lang)
+})
 
 const body = document.querySelector('body');
 // create wrapper + style
