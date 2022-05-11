@@ -293,7 +293,7 @@ document.addEventListener('keydown', colorNotSquare);
 document.addEventListener('keyup', removeColorNotSquare);
 
 function colorNotSquare(event) {
-	const targetElements = [ShiftLeft, AltLeft, Space, Backspace, Delete, Enter, ShiftRight];
+	const targetElements = [ShiftLeft, ControlLeft, AltLeft, Space, Backspace, Delete, Enter, ShiftRight];
 	targetElements.forEach(el => {
 		if (event.code === el.id) {
 			el.setAttribute('pressed', true)
@@ -302,7 +302,7 @@ function colorNotSquare(event) {
 }
 
 function removeColorNotSquare(event) {
-	const targetElements = [CapsLock, ShiftLeft, AltLeft, Space, Backspace, Delete, Enter, ShiftRight];
+	const targetElements = [CapsLock, ControlLeft, ShiftLeft, AltLeft, Space, Backspace, Delete, Enter, ShiftRight];
 	targetElements.forEach(el => {
 		if (event.code === el.id) {
 			el.removeAttribute('pressed')
