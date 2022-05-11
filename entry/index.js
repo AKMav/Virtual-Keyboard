@@ -244,6 +244,7 @@ const Space = document.querySelector('#Space');
 const Backspace = document.querySelector('#Backspace');
 const ShiftLeft = document.querySelector('#ShiftLeft');
 const ShiftRight = document.querySelector('#ShiftRight');
+const ControlLeft = document.querySelector('#ControlLeft');
 const CapsLock = document.querySelector('#CapsLock');
 const AltLeft = document.querySelector('#AltLeft');
 const Enter = document.querySelector('#Enter');
