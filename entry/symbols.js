@@ -10,7 +10,7 @@ export const keyValues = {
 	// row 0
 	Backquote: {
 		en: { default: '`', shift: '~', shiftCaps: '~', caps: '`' },
-		ru: { default: 'ё', shift: 'Ё', shiftCaps: 'Ё', caps: 'Ё' },
+		ru: { default: 'ё', shift: 'Ё', shiftCaps: 'ё', caps: 'Ё' },
 	},
 	Digit1: {
 		en: { default: '1', shift: '!', caps: '1' },

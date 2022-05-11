@@ -109,7 +109,7 @@ for (let i = 0; i < 5; i++) {
 				if (j !== 14) {
 					btn.classList.add('square');
 				}
-				if (j !== 0 && j !== 14) {
+				if (j !== 0 && j < 11) {
 					btn.classList.add('capsable');
 				}
 				row.append(btn);
@@ -260,9 +260,8 @@ function func() {
 }
 
 ShiftLeft.addEventListener('mousedown', callShift)
-ShiftLeft.addEventListener('mouseup', callShift)
 ShiftRight.addEventListener('mousedown', callShift)
-ShiftRight.addEventListener('mouseup', callShift)
+
 
 
 
@@ -274,12 +273,15 @@ function clickOnCaps() {
 	let capsable = document.querySelectorAll('.capsable');
 	for (let button of capsable) {
 		if (keyboardOption.caps) {
-			button.innerText = keyValues[button.id][keyboardOption.lang]['caps']
-		} else {
+			if (keyboardOption.shift) {
+				button.innerText = keyValues[button.id][keyboardOption.lang]['shiftCaps'];
+			} else {
+				button.innerText = keyValues[button.id][keyboardOption.lang]['caps']
+			}
+		} else if (!keyboardOption.caps && keyboardOption.shift) { button.innerText = keyValues[button.id][keyboardOption.lang]['caps'] } else {
 			button.innerText = keyValues[button.id][keyboardOption.lang]['default'];
 		}
 	}
-
 }
 
 CapsLock.addEventListener('click', () => {
